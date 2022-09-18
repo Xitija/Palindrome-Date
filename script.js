@@ -116,7 +116,7 @@ function getNextPalindromeDate(date) {
 
     while(1){
         ctr++;
-        if(checkPalindromeForAllDateFormats(nextDate)){
+        if(checkPalindromeForAllDateFormats(nextDate)[0]){
             break;
         }
         nextDate = getNextDate(nextDate);
@@ -136,7 +136,7 @@ function clickHandler(e) {
         }
 
         var isPalindromeResult = checkPalindromeForAllDateFormats(date);
-        console.log(isPalindromeResult)
+        // console.log(isPalindromeResult)
 
         if(isPalindromeResult[0]) {
             resultRef.innerText = `Yay!! This date is a palindrome when format is ${isPalindromeResult[1]}`; // returns first format matched
@@ -155,6 +155,3 @@ var showBtnRef = document.querySelector("#show-btn");
 var resultRef = document.querySelector("#result");
 
 showBtnRef.addEventListener('click',clickHandler);
-
-console.log(reverseStr("hello hi"));
-console.log(isPalindrome("hello hi"));
