@@ -198,6 +198,9 @@ function clickHandler(e) {
 
         }
     }
+    else {
+        alert("Please select a date");
+    }
 
 }
 
