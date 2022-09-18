@@ -189,12 +189,12 @@ function clickHandler(e) {
         // console.log(isPalindromeResult)
 
         if(isPalindromeResult[0]) {
-            resultRef.innerText = `Yay!! This date is a palindrome when format is ${isPalindromeResult[1]}`; // returns first format matched
+            resultRef.innerHTML= `Yay!! This date is a palindrome when format is <span>${isPalindromeResult[1]}</span>`; // returns first format matched
         }
         else {
             var [ctr , nextDate] = getNextPalindromeDate(date);
             var [ctr1 , prevDate] =  getPreviousPalindromeDate(date);
-            resultRef.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} , you missed it by ${ctr} days & \n The previous palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year} , you missed it by ${ctr1} days!`;
+            resultRef.innerHTML = `The next palindrome date is <span>${nextDate.day}-${nextDate.month}-${nextDate.year}</span> , you missed it by <span>${ctr}</span> days & <br> The previous palindrome date is <span>${prevDate.day}-${prevDate.month}-${prevDate.year}</span> , you missed it by <span>${ctr1}</span> days!`;
 
         }
     }
