@@ -206,6 +206,11 @@ function clickHandler(e) {
 
 var dateInputRef = document.querySelector("#date-input");
 var showBtnRef = document.querySelector("#show-btn");
+var clearBtnRef = document.querySelector("#clear-btn");
 var resultRef = document.querySelector("#result");
 
 showBtnRef.addEventListener('click',clickHandler);
+clearBtnRef.addEventListener('click',()=>{
+    resultRef.innerHTML="";
+    dateInputRef.value ="";
+})
