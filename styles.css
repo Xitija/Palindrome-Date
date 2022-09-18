@@ -47,7 +47,6 @@ input[type="date"] {
 
 button {
     font-family: 'Roboto Slab', serif;
-    display: block;
     margin: auto;
     padding: 0.5rem;
     font-size: 1.2rem;
