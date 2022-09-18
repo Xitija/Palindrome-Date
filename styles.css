@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap');
+
+body {
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2rem;
+    margin: 0rem;
+    background-color: #ede8ea;
+}
+
+main {
+    border: 0.5rem solid #f5366c;
+}
+
+h3 {
+    background-color: #f5366c;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding: 1rem;
+    color: white;
+    font-weight: bolder;
+}
+
+label {
+    display: block;
+    margin-top: 1.2rem;
+}
+
+input[type="date"] {
+    background-color:#fc8dad;
+    padding: 0.5rem;
+    display: block;
+    margin: 1.5rem auto;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: white;
+    padding: 0.3rem;
+    color: #f5366c;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
+
+button {
+    font-family: 'Roboto Slab', serif;
+    display: block;
+    margin: auto;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    background-color: white;
+    color: #f5366c;
+    border: 0.5px solid #f5366c;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
+
+button:hover {
+    background-color: #f5366c;
+    color: #f1f1f1;
+}
+
+small {
+    font-size: 0.8rem;
+}
+
+#result {
+    background-color: white;
+    margin: 2rem;
+}
+
+span {
+    color: #f5366c;
+}
