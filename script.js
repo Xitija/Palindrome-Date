@@ -38,18 +38,26 @@ function getAllDateFormats(date) {
     var mmddyy = dateStrs.month + dateStrs.day + dateStrs.year.slice(-2);
     var yymmdd = dateStrs.year.slice(-2) + dateStrs.month + dateStrs.day;
 
-    return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
+    return {ddmmyyyy: ddmmyyyy, mmddyyyy:mmddyyyy, yyyymmdd: yyyymmdd, ddmmyy: ddmmyy, mmddyy: mmddyy, yymmdd: yymmdd};
 }
 
 function checkPalindromeForAllDateFormats(date) {
     var listOfDateFormats = getAllDateFormats(date);
 
-    for (var i=0; i < listOfDateFormats.length ; i++){
-        if(isPalindrome(listOfDateFormats[i])){
-            return true;
+    // for (var i=0; i < listOfDateFormats.length ; i++){
+    //     if(isPalindrome(listOfDateFormats[i])){
+    //         return [true , listOfDateFormats[i]];
+    //     }
+    // }
+
+    for(let key of Object.keys(listOfDateFormats)) {
+        if(isPalindrome(listOfDateFormats[key])){
+            // console.log(listOfDateFormats[key]);
+            return [true , key];
         }
     }
-    return false;
+
+    return [false, null];
 }
 
 function isLeapYear(year){
@@ -130,12 +138,13 @@ function clickHandler(e) {
         var isPalindromeResult = checkPalindromeForAllDateFormats(date);
         console.log(isPalindromeResult)
 
-        if(isPalindromeResult) {
-            resultRef.innerText = "Yay!! This date is a palindrome";
+        if(isPalindromeResult[0]) {
+            resultRef.innerText = `Yay!! This date is a palindrome when format is ${isPalindromeResult[1]}`; // returns first format matched
         }
         else {
             var [ctr , nextDate] = getNextPalindromeDate(date);
-            resultRef.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} , you missed it by ${ctr} days!`
+            resultRef.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} , you missed it by ${ctr} days!`;
+
         }
     }
 
