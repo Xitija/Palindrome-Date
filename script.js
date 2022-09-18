@@ -125,6 +125,56 @@ function getNextPalindromeDate(date) {
     return [ctr, nextDate];
 }
 
+function getPreviousDate(date) {
+    var day = date.day - 1;
+    var month = date.month;
+    var year = date.year;
+
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if (day < 1){
+        month--;
+        if (month === 2){
+            if(isLeapYear(year)){
+                day = 29;
+            }
+            else {
+                day = daysInMonth[month-1];
+            }
+        }
+        else {
+            day = daysInMonth[month-1];
+        }
+    }
+
+    if (month < 1){
+        month = 12;
+        day = daysInMonth[month-1];
+        year--;
+    }
+
+    return {
+        day : day,
+        month : month,
+        year : year
+    }
+}
+
+function getPreviousPalindromeDate(date) {
+    var ctr = 0;
+    var prevDate = getPreviousDate(date);
+
+    while(1){
+        ctr++;
+        if(checkPalindromeForAllDateFormats(prevDate)[0]){
+            break;
+        }
+        prevDate = getPreviousDate(prevDate);
+    }
+
+    return [ctr, prevDate];
+}
+
 function clickHandler(e) {
     var dateString = dateInputRef.value;
     if (dateString !== ''){
@@ -143,7 +193,8 @@ function clickHandler(e) {
         }
         else {
             var [ctr , nextDate] = getNextPalindromeDate(date);
-            resultRef.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} , you missed it by ${ctr} days!`;
+            var [ctr1 , prevDate] =  getPreviousPalindromeDate(date);
+            resultRef.innerText = `The next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year} , you missed it by ${ctr} days & \n The previous palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year} , you missed it by ${ctr1} days!`;
 
         }
     }
